@@ -1,7 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin,BaseUserManager
+from django.conf import settings
 
 # Create your models here.
+
 
 class UserManager(BaseUserManager):
 
@@ -32,17 +34,26 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser,PermissionsMixin):
 
     email = models.EmailField(unique=True,max_length=254)
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-    updated_date = models.DateTimeField(auto_now=True)
-    date_joined = models.DateField(auto_now_add=True)
+   
     
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["first_name", "last_name"]
+    REQUIRED_FIELDS = []
 
     def __str__(self):
         return self.email
     
     objects = UserManager()
+
+class Profile(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name="profile",on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    avatar = models.ImageField(upload_to="avatars/",blank=True, null=True)
+    bio = models.TextField(max_length=500, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.user.email
