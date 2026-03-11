@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "accounts"
 ]
 
 MIDDLEWARE = [
@@ -79,14 +80,16 @@ WSGI_APPLICATION = "core.wsgi.application"
 #     }
 # }
 
+import os
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get("POSTGRES_DB"),
-        "USER": os.environ.get("POSTGRES_USER"),
-        "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
+        "NAME": os.environ.get("backend_NAME"),
+        "USER": os.environ.get("backend_USER"),
+        "PASSWORD": os.environ.get("backend_PASSWORD"),
         "HOST": "db",
-        "PORT": os.environ.get("DB_PORT", "5432"),
+        "PORT": os.environ.get("backend_PORT"),
     }
 }
 
@@ -127,3 +130,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = "static/"
+
+
+# Custom user model used for authentication in Todo App
+AUTH_USER_MODEL = 'accounts.User'
