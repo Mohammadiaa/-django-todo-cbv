@@ -10,3 +10,6 @@ class CreateTaskView(TemplateView):
 
 class EditTaskView(TemplateView):
      template_name = "tasks/task_form.html" 
+
+class DeleteTaskView(TemplateView):
+     template_name = "tasks/task_confirm_delete.html"
