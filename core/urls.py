@@ -23,9 +23,18 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    
+
+    # path("",TemplateView.as_view(template_name="tasks/task_list.html"),name="home1"),
+
      
+    # path("profile/",TemplateView.as_view(template_name="profile/profile.html"),name="home2"),
 ]
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+
+    
