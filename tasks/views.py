@@ -5,5 +5,8 @@ from django.views.generic import TemplateView
 class TaskListView(TemplateView):
      template_name = "tasks/task_list.html"
 
-class CreateFormView(TemplateView):
+class CreateTaskView(TemplateView):
      template_name = "tasks/task_form.html"    
+
+class EditTaskView(TemplateView):
+     template_name = "tasks/task_form.html" 
