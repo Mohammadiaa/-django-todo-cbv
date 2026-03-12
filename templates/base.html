@@ -5,47 +5,37 @@
     <meta charset="utf-8" />
     <title>Todo App</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
   <body>
-    <nav class="navbar bg-dark navbar-dark">
-      <div class="nav-container">
-        <a class="navbar-brand" href="/">Todo App</a>
+    <nav class="navbar navbar-dark custom-navbar">
+      <div class="nav-container container-fluid">
+        <a class="navbar-brand brand-logo" href="/">Todo App</a>
 
-        <div style="display: flex; align-items: center; gap: 15px">
-          <div style="display: flex; align-items: center; gap: 10px">
-            <span style="color: #fff; font-size: 14px; font-weight: 500">
-              {{ user.email }}
-            </span>
-            <img
-              src="{% static 'avatar.png' %}"
-              width="38"
-              height="38"
-              style="
-                border-radius: 50%;
-                border: 2px solid #444;
-                object-fit: cover;
-              "
-            />
+        <div class="nav-user-section">
+          <div class="user-info">
+            <span class="user-email">{{ user.profile.first_name }}</span>
+
+            {% if user.profile.avatar %}
+              <img src="{{ user.profile.avatar.url }}" alt="Avatar" class="user-avatar" />
+            {% else %}
+              <img src="{% static 'avatar.png' %}" alt="Avatar" class="user-avatar" />
+            {% endif %}
           </div>
 
-          <a
-            class="btn btn-sm btn-primary"
-            href="{% url 'accounts:user_profile' %}"
-            >Profile</a
-          >
+          <a href="{% url 'accounts:user_profile' %}" class="btn profile-btn">Profile</a>
 
-          <form
-            action="{% url 'accounts:logout' %}"
-            method="post"
-            style="display: inline"
-          >
+          <form action="{% url 'accounts:logout' %}" method="post">
             {% csrf_token %}
-            <button class="btn btn-sm btn-danger" type="submit">Logout</button>
+            <button type="submit" class="btn logout-btn">Logout</button>
           </form>
         </div>
       </div>
     </nav>
 
-    <div class="container mt-4">{% block content %}{% endblock %}</div>
+    <div class="container mt-4">
+      {% block content %}
+      {% endblock %}
+    </div>
   </body>
 </html>

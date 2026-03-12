@@ -1,21 +1,36 @@
-{% extends 'base.html' %} 
-{% block content %}
+{% extends 'base.html' %}
 {% load static %}
+{% block content %}
 
 
-<h3 class="btn btn-primary profile-title">Profile</h3>
+<div class="profile-container">
+  <h3 class="profile-title">Profile</h3>
 
-<div class="card p-3 profile-card">
+  <div class="card profile-card">
 
-  <p><strong>Email:</strong> {{ user.email }}</p>
+    <!-- Avatar -->
+    {% if user.profile.avatar %}
+      <img src="{{ user.profile.avatar.url }}" class="profile-avatar">
+    {% else %}
+      <img src="{% static 'avatar.png' %}" class="profile-avatar">
+    {% endif %}
 
-  <p><strong>First name:</strong> {{ profile.first_name }}</p>
 
-  <p><strong>Last name:</strong> {{ profile.last_name }}</p>
-  
-  <p><strong>Joined:</strong> {{ profile.created_at }}</p>
+    <div class="profile-info">
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>First name:</strong> {{ user.profile.first_name }}</p>
+      <p><strong>Last name:</strong> {{ user.profile.last_name }}</p>
 
-  <a class="btn btn-primary" href="/profile/edit/">Edit Profile</a>
+      {% if user.profile.bio %}
+        <p><strong>Bio:</strong> {{ user.profile.bio }}</p>
+      {% endif %}
+
+      <p><strong>Joined:</strong> {{ user.profile.created_at }}</p>
+    </div>
+
+    <a href="{% url "accounts:edit_profile" %}" class="btn edit-btn">Edit Profile</a>
+
+  </div>
 </div>
 
 {% endblock %}
