@@ -4,3 +4,6 @@ from django.views.generic import TemplateView
 
 class ProfileView(TemplateView):
     template_name = "profile/profile.html"
+
+class EditProfileView(TemplateView):
+    template_name = "profile/profile_form.html"

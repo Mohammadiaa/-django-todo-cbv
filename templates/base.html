@@ -8,31 +8,43 @@
   </head>
   <body>
     <nav class="navbar bg-dark navbar-dark">
-  <div class="nav-container">
-    
-  
-    <a class="navbar-brand" href="/">Todo App</a>
+      <div class="nav-container">
+        <a class="navbar-brand" href="/">Todo App</a>
 
-    
-    <div style="display:flex; align-items:center; gap:15px;">
-      
-      
-      <div style="display:flex; align-items:center; gap:10px;">
-        <span style="color:#fff; font-size:14px; font-weight:500;">
-          {{ user.email }}
-        </span>
-        <img src="{% static 'avatar.png' %}" width="38" height="38" 
-             style="border-radius:50%; border:2px solid #444; object-fit:cover;">
+        <div style="display: flex; align-items: center; gap: 15px">
+          <div style="display: flex; align-items: center; gap: 10px">
+            <span style="color: #fff; font-size: 14px; font-weight: 500">
+              {{ user.email }}
+            </span>
+            <img
+              src="{% static 'avatar.png' %}"
+              width="38"
+              height="38"
+              style="
+                border-radius: 50%;
+                border: 2px solid #444;
+                object-fit: cover;
+              "
+            />
+          </div>
+
+          <a
+            class="btn btn-sm btn-primary"
+            href="{% url 'accounts:user_profile' %}"
+            >Profile</a
+          >
+
+          <form
+            action="{% url 'accounts:logout' %}"
+            method="post"
+            style="display: inline"
+          >
+            {% csrf_token %}
+            <button class="btn btn-sm btn-danger" type="submit">Logout</button>
+          </form>
+        </div>
       </div>
-
-
-      <a class="btn btn-sm btn-primary" href="/profile/">Profile</a>
-      <a class="btn btn-sm btn-danger" href="/logout/">Logout</a>
-
-    </div>
-
-  </div>
-</nav>
+    </nav>
 
     <div class="container mt-4">{% block content %}{% endblock %}</div>
   </body>
