@@ -785,3 +785,38 @@ body {
     position:relative;
     z-index:10;
 }
+
+
+.pagination-container{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.page-btn{
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background: #3f6ac3; /* کمی روشن‌تر از قبل */
+    color: white;
+    font-weight: 500;
+    transition: 0.25s;
+}
+
+.page-btn:hover{
+    background: #305099; /* حالت Hover تیره‌تر */
+    transform: translateY(-1px);
+}
+
+.page-info{
+    padding: 6px 10px;
+    background: #eef1f7;
+    border-radius: 6px;
+    color: #333;
+}
