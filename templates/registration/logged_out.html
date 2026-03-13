@@ -1,10 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Logout</title>
-</head>
-<body>
-    <h1>با موفقیت خارج شدید</h1>
-    <a href="/accounts/login/">ورود مجدد</a>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="text-center" style="margin-top:180px;">
+
+  <div class="card shadow p-4 mx-auto text-center" style="max-width:420px; border-radius:16px;">
+
+    <h3 class="mb-3">You have been logged out</h3>
+
+    <p class="mb-4">
+      Thanks for using the Todo App. See you again!
+    </p>
+
+    <a href="{% url 'accounts:login' %}" class="btn btn-primary">
+      Login again
+    </a>
+
+  </div>
+
+</div>
+
+{% endblock %}

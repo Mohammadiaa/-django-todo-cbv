@@ -8,46 +8,50 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
   <body>
-  
-   
-<nav class="navbar navbar-dark custom-navbar">
-  <div class="nav-container container-fluid">
-    <a class="navbar-brand brand-logo">Todo App</a>
+    <nav class="navbar navbar-dark custom-navbar">
+      <div class="nav-container container-fluid">
+        <a class="navbar-brand brand-logo">Todo App</a>
 
-    <div class="nav-user-section">
+        <div class="nav-user-section">
+          {% if user.is_authenticated %}
 
-      <!-- Profile & Logout (سمت چپ) -->
-      {% comment %} <a href="{% url 'tasks:task_list' %}" class="btn profile-btn">Tasks</a> {% endcomment %}
+          <a
+            href="{% url 'tasks:task_list' %}"
+            class="btn profile-btn {% if request.path == '/tasks/' %}active{% endif %}"
+          >
+            Tasks
+          </a>
 
-      <a href="{% url 'tasks:task_list' %}"
-   class="btn profile-btn {% if request.path == '/tasks/' %}active{% endif %}">
-   Tasks
-</a>
+          <form action="{% url 'accounts:logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn logout-btn">Logout</button>
+          </form>
 
-      <form action="{% url 'accounts:logout' %}" method="post">
-        {% csrf_token %}
-        <button type="submit" class="btn logout-btn">Logout</button>
-      </form>
+          <!-- Avatar & Name (ته راست) -->
+          <a href="{% url 'accounts:user_profile' %}" class="profile-box">
+            <div class="user-info">
+              <span class="user-email">{{ user.profile.first_name }}</span>
 
-      <!-- Avatar & Name (ته راست) -->
-      <a href="{% url 'accounts:user_profile' %}" class="profile-box">
-        <div class="user-info">
-          <span class="user-email">{{ user.profile.first_name }}</span>
+              {% if user.profile.avatar %}
+              <img
+                src="{{ user.profile.avatar.url }}"
+                alt="Avatar"
+                class="user-avatar"
+              />
+              {% else %}
+              <img
+                src="{% static 'avatar.png' %}"
+                alt="Avatar"
+                class="user-avatar"
+              />
+              {% endif %}
+            </div>
+          </a>
 
-          {% if user.profile.avatar %}
-            <img src="{{ user.profile.avatar.url }}" alt="Avatar" class="user-avatar" />
-          {% else %}
-            <img src="{% static 'avatar.png' %}" alt="Avatar" class="user-avatar" />
           {% endif %}
         </div>
-      </a>
-
-    </div>
-  </div>
-</nav>
- <div class="container mt-4">
-      {% block content %}
-      {% endblock %}
-    </div>
+      </div>
+    </nav>
+    <div class="container mt-4">{% block content %} {% endblock %}</div>
   </body>
-</html> 
+</html>
