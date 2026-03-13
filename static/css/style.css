@@ -820,3 +820,65 @@ body {
     border-radius: 6px;
     color: #333;
 }
+
+.profile-box{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 6px 12px;
+
+    border-radius: 15px;   /* قبلا 20px بود */
+
+    background: rgba(255,255,255,0.15);
+
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+
+    transition: 0.25s;
+}
+
+.profile-box:hover{
+    background: white;
+    
+}
+
+.nav-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-user-section{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* دکمه آواتار */
+.profile-box{
+    text-decoration: none;
+    color: #f1f1f1;
+    padding: 6px 10px;
+    border-radius: 20px;
+}
+
+.profile-box:hover{
+    background: rgba(255,255,255,0.15);
+    color: #ffd166; /* رنگ واضح روی hover */
+}
+
+/* اطلاعات کاربر */
+.user-info{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.user-avatar{
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
