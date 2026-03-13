@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView,ListView,CreateView,DetailView
+from django.views.generic import TemplateView,ListView,CreateView,DetailView,DeleteView
 from .models import Task
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect
@@ -39,5 +39,7 @@ class TaskDetailView(LoginRequiredMixin,DetailView):
 class EditTaskView(TemplateView):
      template_name = "tasks/task_form.html" 
 
-class DeleteTaskView(TemplateView):
+class DeleteTaskView(LoginRequiredMixin,DeleteView):
+     model = Task
      template_name = "tasks/task_confirm_delete.html"
+     success_url = "/tasks/"
