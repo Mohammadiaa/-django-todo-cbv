@@ -588,3 +588,87 @@ body {
     color: #1e293b;
     letter-spacing: -0.5px;
 }
+
+
+
+/* Center wrapper */
+.delete-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+/* White Box Style */
+.confirm-box {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 450px;
+}
+
+.confirm-box .label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.confirm-box h2 {
+    font-weight: 800;
+    color: #222;
+    margin-bottom: 25px;
+}
+
+.item-to-delete {
+    background: #fdf2f2;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border-left: 4px solid #dc3545;
+}
+
+.item-to-delete p {
+    margin: 0;
+    color: #555;
+    font-size: 14px;
+}
+
+.item-to-delete strong {
+    display: block;
+    margin-top: 5px;
+    color: #000;
+    font-size: 18px;
+}
+
+/* Button styles */
+.actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-del {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-can {
+    background: #f0f0f0;
+    color: #444;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+}

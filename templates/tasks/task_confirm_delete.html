@@ -1,12 +1,23 @@
-{% extends 'base.html' %} 
-{% block content %}
+{% extends 'base.html' %}
 {% load static %}
 
-<h4>Delete Task</h4>
-<p>Are you sure you want to delete "{{ object }}"?</p>
-<form method="post">
-  {% csrf_token %}
-  <button class="btn btn-danger">Delete</button>
-  <a href="/" class="btn btn-secondary">Cancel</a>
-</form>
+{% block content %}
+<div class="delete-container">
+    <div class="confirm-box">
+        <span class="label">Task Management</span>
+        <h2>Delete Task</h2>
+
+        <div class="item-to-delete">
+            <p>Are you sure you want to delete this task?</p>
+            <strong>"{{ object }}"</strong>
+        </div>
+
+        <form method="post" class="actions">
+            {% csrf_token %}
+            <!-- Original links and logic preserved -->
+            <button type="submit" class="btn-del">Delete</button>
+            <a href="{% url "tasks:task_list" %}" class="btn-can">Cancel</a>
+        </form>
+    </div>
+</div>
 {% endblock %}
