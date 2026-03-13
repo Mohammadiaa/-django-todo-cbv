@@ -541,3 +541,50 @@ body {
 .modern-card {
     animation: slideUp 0.5s ease-out;
 }
+
+
+/* ۱. استایل کلی لیست */
+.list-group-item {
+    border: none; /* حذف حاشیه دور هر آیتم */
+    border-bottom: 1px solid #f1f5f9; /* ایجاد خط جداکننده بسیار ظریف */
+    padding: 1.2rem 1rem; /* فاصله بیشتر برای خوانایی */
+    transition: all 0.3s ease; /* انیمیشن نرم برای تغییرات */
+}
+
+/* ۲. افکت هاور روی هر ردیف تسک */
+.list-group-item:hover {
+    background-color: #f8fafc; /* تغییر رنگ ملایم پس‌زمینه */
+    transform: translateX(5px); /* حرکت جزیی به سمت راست موقع هاور */
+}
+
+/* ۳. استایل عنوان تسک (بدون خط زیر و با رنگ بهتر) */
+.task-title a {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #334155 !important; /* رنگ زغالی شیک */
+    text-decoration: none !important; /* حذف قطعی خط زیر */
+    display: inline-block;
+}
+
+/* ۴. استایل تسک‌های انجام شده */
+.task-done-text {
+    color: #94a3b8 !important; /* کمرنگ کردن متن */
+    opacity: 0.7;
+}
+
+/* ۵. مدرن کردن دکمه‌ها */
+.btn-group .btn {
+    border-radius: 8px !important; /* گرد کردن لبه دکمه‌ها */
+    margin-left: 5px;
+    font-size: 0.85rem;
+    padding: 5px 15px;
+    border: none;
+}
+
+/* ۶. استایل هدر (جایگزین دکمه غیرفعال) */
+.my-tasks-header {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1e293b;
+    letter-spacing: -0.5px;
+}
