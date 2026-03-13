@@ -1,88 +1,79 @@
-{% extends 'base.html' %} 
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
 <div class="card p-4 shadow-sm">
-      
-  <div class="d-flex justify-content-between align-items-center mb-4">
-          
-    <span class="btn btn-primary btn-lg disabled"> My Tasks </span>
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>My Tasks</h2>
 
-    <a class="btn btn-success btn-lg shadow-sm" href="{% url "tasks:create_task" %}">
+    <a
+      class="btn btn-success btn-lg shadow-sm"
+      href="{% url 'tasks:create_task' %}"
+    >
       + New Task
     </a>
-
   </div>
 
   <ul class="list-group">
-
-    {% for task in tasks  %}
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-
-    {% comment %} <span class="task-title"> {% endcomment %}
-
-       {% comment %} {% if task.is_done %}
-       <s>{{ task.title }}</s>
-       {% else %}
-       {{ task.title }}
-       {% endif %}
-
-      </span> {% endcomment %}
-
-   <span class="task-title">
-    <a href="{% url 'tasks:detail_task' task.pk %}" class="text-decoration-none text-dark">
-        {% if task.is_done %}
-            <s>{{ task.title }}</s>
-        {% else %}
-            {{ task.title }}
-        {% endif %}
-    </a>
-</span>
-
-
+    {% for task in tasks %}
+    <li
+      class="list-group-item d-flex justify-content-between align-items-center"
+    >
+      <span class="task-title">
+        <a
+          href="{% url 'tasks:detail_task' task.pk %}"
+          class="text-decoration-none text-dark"
+        >
+          {% if task.is_done %}
+          <s>{{ task.title }}</s>
+          {% else %} {{ task.title }} {% endif %}
+        </a>
+      </span>
 
       <div class="btn-group" role="group">
-        <a class="btn btn-sm btn-warning" href="{% url 'tasks:task_toggle' task.pk %}">
-            Done
+        <a
+          class="btn btn-sm btn-warning"
+          href="{% url 'tasks:task_toggle' task.pk %}"
+        >
+          Done
         </a>
 
-
-        <a class="btn btn-sm btn-info" href="{% url 'tasks:edit_task' task.pk %}">
+        <a
+          class="btn btn-sm btn-info"
+          href="{% url 'tasks:edit_task' task.pk %}"
+        >
           Edit
-      </a>
+        </a>
 
-        <a class="btn btn-sm btn-danger" href="{% url 'tasks:delete_task' task.pk %}">
+        <a
+          class="btn btn-sm btn-danger"
+          href="{% url 'tasks:delete_task' task.pk %}"
+        >
           Delete
-          </a>
-
+        </a>
       </div>
-
     </li>
     {% empty %}
     <li class="list-group-item text-center text-muted py-4">No tasks yet</li>
     {% endfor %}
 
+    <div class="pagination-container">
+      {% if is_paginated %}
+      <div class="pagination">
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}" class="page-btn"
+          >«</a
+        >
+        {% endif %}
 
+        <span class="page-info"
+          >{{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</span
+        >
 
-
-<div class="pagination-container">
-  {% if is_paginated %}
-  <div class="pagination">
-
-      {% if page_obj.has_previous %}
-          <a href="?page={{ page_obj.previous_page_number }}" class="page-btn">«</a>
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" class="page-btn">»</a>
+        {% endif %}
+      </div>
       {% endif %}
-
-      <span class="page-info">{{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</span>
-
-      {% if page_obj.has_next %}
-          <a href="?page={{ page_obj.next_page_number }}" class="page-btn">»</a>
-      {% endif %}
-
-  </div>
-  {% endif %}
-</div>
-
-
+    </div>
   </ul>
 </div>
 
