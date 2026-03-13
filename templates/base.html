@@ -17,7 +17,12 @@
     <div class="nav-user-section">
 
       <!-- Profile & Logout (سمت چپ) -->
-      <a href="{% url 'tasks:task_list' %}" class="btn profile-btn">Tasks</a>
+      {% comment %} <a href="{% url 'tasks:task_list' %}" class="btn profile-btn">Tasks</a> {% endcomment %}
+
+      <a href="{% url 'tasks:task_list' %}"
+   class="btn profile-btn {% if request.path == '/tasks/' %}active{% endif %}">
+   Tasks
+</a>
 
       <form action="{% url 'accounts:logout' %}" method="post">
         {% csrf_token %}

@@ -882,3 +882,9 @@ body {
     border-radius: 50%;
     object-fit: cover;
 }
+
+.profile-btn.active {
+  background-color: #ffffff;
+  color: #2c4c84;
+  font-weight: 600;
+}
