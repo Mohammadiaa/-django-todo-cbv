@@ -14,7 +14,7 @@
         {% else %}
         <img src="{% static 'img/default-avatar.png' %}" class="profile-avatar">
         {% endif %}
-        
+
       </div>
       <h2 class="profile-name">{{ user.profile.first_name }} {{ user.profile.last_name }}</h2>
       <span class="profile-email">{{ user.email }}</span>
@@ -33,7 +33,11 @@
         </div>
         <div>
           <span>Joined</span>
-          <strong>{{ user.profile.created_at|naturaltime }}</strong>
+          <strong>{{ user.profile.created_at|date:"F d, Y" }}</strong>
+        </div>
+         <div>
+          <span>updated Profile</span>
+          <strong>{{ user.profile.updated_at|naturaltime }}</strong>
         </div>
       </div>
 
