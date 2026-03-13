@@ -1,12 +1,43 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% block content %}
-{% load static %}
 
+<div class="edit-profile-page">
+  <div class="edit-profile-card">
 
-<h3>Edit Profile</h3>
-<form method="post">
-    {% csrf_token %} 
-    {{ form.as_p }}
-  <button class="btn btn-primary">Save</button>
-</form>
+    <div class="edit-header">
+      <img src="{{ user.profile.avatar.url }}" class="edit-avatar">
+      <h2>Edit Profile</h2>
+      <p>{{ user.email }}</p>
+    </div>
+
+    <form method="post" enctype="multipart/form-data" class="edit-form">
+      {% csrf_token %}
+
+      <div class="row">
+        <div class="field">
+          <label>First name</label>
+          {{ form.first_name }}
+        </div>
+        <div class="field">
+          <label>Last name</label>
+          {{ form.last_name }}
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Avatar</label>
+        {{ form.avatar }}
+      </div>
+
+      <div class="field">
+        <label>Bio</label>
+        {{ form.bio }}
+      </div>
+
+      <button class="save-btn">Save Changes</button>
+    </form>
+
+  </div>
+</div>
+
 {% endblock %}
