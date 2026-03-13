@@ -1,9 +1,10 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView,ListView
+from django.views.generic import TemplateView,ListView,CreateView
 from .models import Task
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect
 from django.views import View
+from .forms import TaskForm
 # Create your views here.
 class TaskListView(LoginRequiredMixin,ListView):
      model = Task
@@ -19,8 +20,16 @@ class ToggleTaskView(LoginRequiredMixin, View):
         task.is_done = not task.is_done
         task.save()
         return redirect('tasks:task_list')
-class CreateTaskView(TemplateView):
+class CreateTaskView(LoginRequiredMixin,CreateView):
+     model = Task
+     form_class = TaskForm
      template_name = "tasks/task_form.html"    
+     success_url = "/tasks/"
+
+     def form_valid(self, form):
+          form.instance.user = self.request.user
+          return super().form_valid(form)
+         
 
 class EditTaskView(TemplateView):
      template_name = "tasks/task_form.html" 
