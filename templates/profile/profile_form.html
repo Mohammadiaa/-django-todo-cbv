@@ -4,11 +4,24 @@
 <div class="edit-profile-page">
   <div class="edit-profile-card">
 
-    <div class="edit-header">
+    {% comment %} <div class="edit-header">
       <img src="{{ user.profile.avatar.url }}" class="edit-avatar">
       <h2>Edit Profile</h2>
       <p>{{ user.email }}</p>
-    </div>
+    </div> {% endcomment %}
+
+    <div class="edit-header">
+  {% if user.profile.avatar %}
+    <img src="{{ user.profile.avatar.url }}" class="edit-avatar">
+  {% else %}
+    {% load static %}
+    <img src="{% static 'img/default-avatar.png' %}" class="edit-avatar">
+  {% endif %}
+  
+  <h2>Edit Profile</h2>
+  <p>{{ user.email }}</p>
+</div>
+
 
     <form method="post" enctype="multipart/form-data" class="edit-form">
       {% csrf_token %}
