@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="detail-page-wrapper">
+    <div class="modern-card">
+       
+        <div class="card-header">
+            <span class="label">Task Title</span>
+            <h1 class="main-title">{{ task.title }}</h1>
+        </div>
+
+        <div class="card-body">
+            
+            <div class="info-group">
+                <label><i class="fas fa-align-left"></i> Description</label>
+                <div class="description-box">
+                    {% if task.description %}
+                        {{ task.description }}
+                    {% else %}
+                        <span class="empty-text">No description provided for this task.</span>
+                    {% endif %}
+                </div>
+            </div>
+
+           
+            <div class="info-group">
+                <label>Status</label>
+                <div class="status-indicator">
+                    {% if task.is_done %}
+                        <span class="badge status-done">
+                            <span class="dot"></span> Done
+                        </span>
+                    {% else %}
+                        <span class="badge status-pending">
+                            <span class="dot"></span> Not done
+                        </span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="card-footer">
+            <a href="{% url 'tasks:task_list' %}" class="btn-modern-back">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                Back to List
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

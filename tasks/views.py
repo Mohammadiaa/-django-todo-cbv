@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView,ListView,CreateView
+from django.views.generic import TemplateView,ListView,CreateView,DetailView
 from .models import Task
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect
@@ -20,6 +20,7 @@ class ToggleTaskView(LoginRequiredMixin, View):
         task.is_done = not task.is_done
         task.save()
         return redirect('tasks:task_list')
+    
 class CreateTaskView(LoginRequiredMixin,CreateView):
      model = Task
      form_class = TaskForm
@@ -30,6 +31,10 @@ class CreateTaskView(LoginRequiredMixin,CreateView):
           form.instance.user = self.request.user
           return super().form_valid(form)
          
+class TaskDetailView(LoginRequiredMixin,DetailView):
+     model = Task
+     template_name = 'tasks/task_detail.html'
+     context_object_name = 'task'
 
 class EditTaskView(TemplateView):
      template_name = "tasks/task_form.html" 

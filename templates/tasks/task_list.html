@@ -18,15 +18,27 @@
     {% for task in tasks  %}
     <li class="list-group-item d-flex justify-content-between align-items-center">
 
-      <span class="task-title">
+    {% comment %} <span class="task-title"> {% endcomment %}
 
-       {% if task.is_done %}
+       {% comment %} {% if task.is_done %}
        <s>{{ task.title }}</s>
        {% else %}
        {{ task.title }}
        {% endif %}
 
-      </span>
+      </span> {% endcomment %}
+
+   <span class="task-title">
+    <a href="{% url 'tasks:detail_task' task.pk %}" class="text-decoration-none text-dark">
+        {% if task.is_done %}
+            <s>{{ task.title }}</s>
+        {% else %}
+            {{ task.title }}
+        {% endif %}
+    </a>
+</span>
+
+
 
       <div class="btn-group" role="group">
         <a class="btn btn-sm btn-warning" href="{% url 'tasks:task_toggle' task.pk %}">
