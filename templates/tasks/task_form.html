@@ -5,7 +5,10 @@
 <div class="form-wrapper">
     <div class="form-card">
         
-        <h3>Task Details</h3>
+        {% comment %} <h3>Task Details</h3> {% endcomment %}
+        <h3>
+          {% if object %} Edit Task {% else %} New Task {% endif %}
+        </h3>
 
         <form method="post">
             {% csrf_token %} 
