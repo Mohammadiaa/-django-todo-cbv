@@ -1,7 +1,4 @@
-
-
 .card {
-  /* background: #ffffff; */
   background: #ffffff;
   color: #000;
   border-radius: 16px;
@@ -27,7 +24,7 @@
 }
 
 .btn-success {
-  background: #0056d6;
+  background:#1e3c72;
   border: none;
   color: #fff;
   font-size: 1rem;
@@ -37,7 +34,7 @@
 }
 
 .btn-success:hover {
-  background: #0040a3;
+  background: #1e3c72;
   transform: translateY(-2px);
 }
 
@@ -86,18 +83,18 @@
 }
 
 .btn-warning {
-  background: #1bbf72;
+  background: #02a257;
   border: none;
   color: #fff;
 }
 
 .btn-warning:hover {
-  background: #16a865;
+  background: #094228;
   transform: translateY(-1px);
 }
 
 .btn-info {
-  background: #007bff;
+  background: #1e3c72;
   border: none;
   color: #fff;
 }
@@ -114,7 +111,7 @@
 }
 
 .btn-danger:hover {
-  background: #b02a37;
+  background: #98222e;
   transform: translateY(-1px);
 }
 
@@ -312,11 +309,6 @@
   gap: 18px;
 }
 
-.user-info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
 
 .user-email {
   color: #e8ecf5;
@@ -541,53 +533,45 @@
 }
 
 
-/* ۱. استایل کلی لیست */
 .list-group-item {
-    border: none; /* حذف حاشیه دور هر آیتم */
-    border-bottom: 1px solid #f1f5f9; /* ایجاد خط جداکننده بسیار ظریف */
-    padding: 1.2rem 1rem; /* فاصله بیشتر برای خوانایی */
-    transition: all 0.3s ease; /* انیمیشن نرم برای تغییرات */
+    border: none; 
+    border-bottom: 1px solid #f1f5f9; 
+    padding: 1.2rem 1rem;
+    transition: all 0.3s ease;
 }
 
-/* ۲. افکت هاور روی هر ردیف تسک */
 .list-group-item:hover {
-    background-color: #f8fafc; /* تغییر رنگ ملایم پس‌زمینه */
-    transform: translateX(5px); /* حرکت جزیی به سمت راست موقع هاور */
+    background-color: #f8fafc; 
+    transform: translateX(5px);
 }
 
-/* ۳. استایل عنوان تسک (بدون خط زیر و با رنگ بهتر) */
 .task-title a {
     font-size: 1.1rem;
     font-weight: 600;
-    color: #334155 !important; /* رنگ زغالی شیک */
-    text-decoration: none !important; /* حذف قطعی خط زیر */
+    color: #334155 !important;
+    text-decoration: none !important;
     display: inline-block;
 }
 
-/* ۴. استایل تسک‌های انجام شده */
 .task-done-text {
-    color: #94a3b8 !important; /* کمرنگ کردن متن */
+    color: #94a3b8 !important;
     opacity: 0.7;
 }
 
-/* ۵. مدرن کردن دکمه‌ها */
 .btn-group .btn {
-    border-radius: 8px !important; /* گرد کردن لبه دکمه‌ها */
+    border-radius: 8px !important;
     margin-left: 5px;
     font-size: 0.85rem;
     padding: 5px 15px;
     border: none;
 }
 
-/* ۶. استایل هدر (جایگزین دکمه غیرفعال) */
 .my-tasks-header {
     font-size: 1.5rem;
     font-weight: 800;
     color: #1e293b;
     letter-spacing: -0.5px;
 }
-
-
 
 /* Center wrapper */
 .delete-container {
@@ -802,14 +786,14 @@
     text-decoration: none;
     padding: 6px 12px;
     border-radius: 6px;
-    background: #3f6ac3; /* کمی روشن‌تر از قبل */
+    background: #1e3c72;
     color: white;
     font-weight: 500;
     transition: 0.25s;
 }
 
 .page-btn:hover{
-    background: #305099; /* حالت Hover تیره‌تر */
+    background: #305099;
     transform: translateY(-1px);
 }
 
@@ -827,7 +811,7 @@
 
     padding: 6px 12px;
 
-    border-radius: 15px;   /* قبلا 20px بود */
+    border-radius: 15px;
 
     background: rgba(255,255,255,0.15);
 
@@ -855,7 +839,6 @@
     gap: 12px;
 }
 
-/* دکمه آواتار */
 .profile-box{
     text-decoration: none;
     color: #f1f1f1;
@@ -865,14 +848,14 @@
 
 .profile-box:hover{
     background: rgba(255,255,255,0.15);
-    color: #ffd166; /* رنگ واضح روی hover */
+    color: #ffd166;
 }
 
-/* اطلاعات کاربر */
 .user-info{
     display: flex;
     align-items: center;
     gap: 8px;
+    
 }
 
 .user-avatar{
@@ -884,7 +867,7 @@
 
 .profile-btn.active {
   background-color: #ffffff;
-  color: #2c4c84;
+  color: #2a5298;
   font-weight: 600;
 }
 
@@ -904,7 +887,7 @@
 }
 
 .profile-header {
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
+ background: radial-gradient(circle at top left, #1e2a4f, #0d255a, #163d8a);
   padding: 70px 20px 40px;
   text-align: center;
   color: white;
@@ -926,8 +909,8 @@
   height: 110px;
   border-radius: 50%;
   object-fit: cover;
-  border: none;        /* حاشیه قبلی را حذف می‌کند */
-  display: block;      /* برای اطمینان از حذف فاصله‌های کوچک زیر عکس */
+  border: none;    
+  display: block;
   margin: 0;
 }
 
@@ -983,7 +966,7 @@
   display: block;
   width: 100%;
   text-align: center;
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  background: radial-gradient(circle at top left, #1e2a4f, #0d255a, #163d8a);
   color: white;
   padding: 14px;
   border-radius: 14px;
@@ -996,9 +979,6 @@
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(30,60,114,0.5);
 }
-
-
-
 
 .edit-profile-container {
   width: 100%;
@@ -1088,31 +1068,18 @@ input:focus {
   color: #E0E0E0;
 }
 
-.save-btn {
-  margin-top: 25px;
-  width: 100%;
-  padding: 14px;
-  background: linear-gradient(90deg, #4F8FFF, #6D9FFD);
-  border: none;
-  border-radius: 12px;
-  color: #fff;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
 .save-btn:hover {
   background: linear-gradient(90deg, #3773FF, #4F8FFF);
   box-shadow: 0 8px 22px rgba(79,143,255,0.4);
 }
 
 body {
-  background: linear-gradient(135deg, #1E2A78, #2A4CF7);
+ 
+  background: linear-gradient(135deg, #162a4f, #1e3c72);
   color: #fff;
   font-family: 'Poppins', sans-serif;
   margin: 0;
-  padding-top: 90px; /* مهم! برای اینکه کارت نره زیر نوبار */
+  padding-top: 90px;
 }
 
 /* ───── Navbar ───── */
@@ -1183,8 +1150,8 @@ body {
 }
 
 .profile-card {
-  background: #fff;  /* ← کارت سفید */
-  color: #222;       /* ← رنگ نوشته‌ها تیره‌تر برای خوانایی */
+  background: #fff;
+  color: #222;
   border-radius: 20px;
   width: 400px;
   padding: 30px;
@@ -1218,19 +1185,16 @@ body {
   transform: translateY(-2px);
 }
 
-/* صفحه کلی */
 .edit-profile-page {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  /* background: linear-gradient(135deg, #1e3a8a, #2563eb); */
-  overflow: hidden; /* جلوگیری از اسکرول */
+  overflow: hidden; 
   margin: 0;
   padding: 0;
 }
 
-/* کارت سفید پروفایل */
 .edit-profile-card {
   width: 360px;
   background: #ffffff;
@@ -1242,7 +1206,6 @@ body {
   align-items: center;
 }
 
-/* هدر کارت */
 .edit-header {
   text-align: center;
   margin-bottom: 16px;
@@ -1270,7 +1233,6 @@ body {
   color: #64748b;
 }
 
-/* فرم */
 .edit-form {
   display: flex;
   flex-direction: column;
@@ -1311,10 +1273,9 @@ body {
   resize: vertical;
 }
 
-/* دکمه */
 .save-btn {
   margin-top: 10px;
-  background: linear-gradient(90deg,#2563eb,#3b82f6);
+  background: radial-gradient(circle at top left, #1e2a4f, #0d255a, #163d8a);
   color: #fff;
   border: none;
   padding: 10px;
@@ -1329,7 +1290,8 @@ body {
 
 html, body {
   height: 100%;
-  overflow: hidden; /* کاملاً ممانعت از اسکرول در کل صفحه */
+  overflow: hidden;
   margin: 0;
   padding: 0;
+
 }
