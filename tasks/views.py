@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView,ListView,CreateView,DetailView,DeleteView,UpdateView
+from django.views.generic import ListView,CreateView,DetailView,DeleteView,UpdateView
 from .models import Task
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect

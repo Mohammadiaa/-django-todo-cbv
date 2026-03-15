@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Register | Todo App</title>
+
+<style>
+
+body{
+    margin:0;
+    height:100vh;
+    background: linear-gradient(135deg,#1e3c72,#2a5298);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:'Segoe UI', sans-serif;
+}
+
+/* card */
+
+.auth-card{
+    width:360px;
+    background:white;
+    border-radius:14px;
+    padding:35px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.2);
+    text-align:center;
+}
+
+/* title */
+
+.auth-card h2{
+    margin-bottom:20px;
+    font-weight:600;
+}
+
+/* labels */
+
+form p{
+    text-align:left;
+    font-size:14px;
+    margin-bottom:12px;
+}
+
+/* inputs */
+
+input{
+    width:100%;
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #ddd;
+    margin-top:6px;
+    font-size:14px;
+    outline:none;
+}
+
+input:focus{
+    border-color:#2a5298;
+}
+
+/* button */
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border:none;
+    border-radius:8px;
+    background:#2a5298;
+    color:white;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1e3c72;
+}
+
+/* footer */
+
+.footer-text{
+    margin-top:15px;
+    font-size:14px;
+}
+
+.footer-text a{
+    color:#2a5298;
+    text-decoration:none;
+    font-weight:600;
+}
+form{
+    width:100%;
+}
+
+form p{
+    text-align:left;
+    font-size:14px;
+    margin-bottom:15px;
+    width:100%;
+}
+
+input{
+    width:100%;
+    box-sizing:border-box;
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #ddd;
+    margin-top:6px;
+    font-size:14px;
+    outline:none;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div class="auth-card">
+
+<h2>Create Account</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Sign Up</button>
+</form>
+
+<p class="footer-text">
+Already have an account?
+<a href="{% url 'accounts:login' %}">Login</a>
+</p>
+
+</div>
+
+</body>
+</html>

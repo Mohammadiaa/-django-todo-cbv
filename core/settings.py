@@ -144,4 +144,19 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 # Custom user model used for authentication in Todo App
 AUTH_USER_MODEL = 'accounts.User'
+LOGIN_REDIRECT_URL = "/accounts/profile/"
 
+AUTHENTICATION_BACKENDS = [
+    "accounts.backends.EmailBackend",
+    "django.contrib.auth.backends.ModelBackend",
+]
+
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
+]
